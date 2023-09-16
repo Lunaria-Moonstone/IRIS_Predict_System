@@ -10,17 +10,9 @@ use crate::utils::csv_reader::read_csv_of_iris_data;
 fn map_data(
     dataset: Vec<Iris_Csv>, 
     vec_processed: &mut Vec<f64>,
-    // vec_sepal_w: &mut Vec<f64>,
-    // vec_sepal_l: &mut Vec<f64>,
-    // vec_petal_w: &mut Vec<f64>,
-    // vec_petal_l: &mut Vec<f64>,
     labels: &mut Vec<f64>
 ) {
     for record in dataset.iter() {
-        // vec_sepal_w.push(record.sepal_width);
-        // vec_sepal_l.push(record.sepal_length);
-        // vec_petal_w.push(record.patel_width);
-        // vec_petal_l.push(record.patel_length);
         vec_processed.push(record.sepal_width);
         vec_processed.push(record.sepal_length);
         vec_processed.push(record.petal_width);
@@ -40,7 +32,8 @@ fn map_data(
  */
 pub fn pretrain() -> Result<LinRegressor, Box<dyn Error>> {
     // read csv file
-    let vec_iris_csv = read_csv_of_iris_data("../data/iris.data")?;
+
+    let vec_iris_csv = read_csv_of_iris_data("data/iris.data")?;
     let length = vec_iris_csv.len();
 
     // load vector

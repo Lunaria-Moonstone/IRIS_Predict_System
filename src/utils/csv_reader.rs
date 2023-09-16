@@ -1,5 +1,6 @@
 use std::fs::File;
 use std::io::Read;
+use std::env;
 // use serde::Deserialize;
 use crate::structure::csv_struct::Iris_Csv;
 
@@ -8,6 +9,7 @@ use crate::structure::csv_struct::Iris_Csv;
 */
 pub fn read_csv_of_iris_data(pth: &str) -> Result<Vec<Iris_Csv>, csv::Error> {
     // read file
+    // println!("now work space is {:?}", env::current_dir().unwrap());
     let mut csv_file = File::open(pth).unwrap();
     let mut csv_comment: String = String::new();
     csv_file.read_to_string(&mut csv_comment).unwrap();
